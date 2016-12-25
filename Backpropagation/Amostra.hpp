@@ -6,6 +6,10 @@ using namespace std;
 class Amostra{
 	public:
 		float *caracteristicas;
-		float *saidas_esperadas;
+		float *saida_esperadas;
+		int n_caracteristicas;
+		int n_saidas;
+		void init(int n_caracteristicas,int n_saidas);
+		void carrega_mostra();
 };
 

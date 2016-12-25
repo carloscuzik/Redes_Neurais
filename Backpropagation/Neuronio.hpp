@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include "Amostra.hpp"
 
 using namespace std;
 
@@ -8,6 +9,9 @@ class Neuronio{
 		int numero_de_entrada;
 		int valor_da_saida;
 		float *pesos_sinapticos;
-		void init(int n_caracteristicas);
 		Neuronio();
+		void init(int n_caracteristicas);
+		void init_pesos_sinapticos();
+		void caucula_valor_de_saida(float *valores_passados);
+		float sigmoid(float v);
 };

@@ -1,7 +1,7 @@
-#include "Alocacao_dimanica.hpp"
+#include "Alocacao_dinamica.hpp"
 
 // Funções de Alocação de recursos
-int *Alocacao_dimanica::alocar_vetor_int(int elementos){
+int *Alocacao_dinamica::alocar_vetor_int(int elementos){
 	int *vetor;
 	if(elementos<1){
 		cout << "** Erro: Parametro invalido **" << endl;
@@ -14,7 +14,7 @@ int *Alocacao_dimanica::alocar_vetor_int(int elementos){
 	}
 	return vetor;
 }
-int *Alocacao_dimanica::destroi_vetor_int (int elementos, int *vetor){
+int *Alocacao_dinamica::destroi_vetor_int (int elementos, int *vetor){
 	if(vetor == NULL){
 		return NULL;
 	}
@@ -25,7 +25,7 @@ int *Alocacao_dimanica::destroi_vetor_int (int elementos, int *vetor){
 	free(vetor);
 	return NULL;
 }
-float *Alocacao_dimanica::alocar_vetor_float(int elementos){
+float *Alocacao_dinamica::alocar_vetor_float(int elementos){
 	float *vetor;
 	if(elementos<1){
 		cout << "** Erro: Parametro invalido **" << endl;
@@ -38,7 +38,7 @@ float *Alocacao_dimanica::alocar_vetor_float(int elementos){
 	}
 	return vetor;
 }
-float *Alocacao_dimanica::destroi_vetor_float (int elementos, float *vetor){
+float *Alocacao_dinamica::destroi_vetor_float (int elementos, float *vetor){
 	if(vetor == NULL){
 		return NULL;
 	}
@@ -49,7 +49,7 @@ float *Alocacao_dimanica::destroi_vetor_float (int elementos, float *vetor){
 	free(vetor);
 	return NULL;
 }
-float **Alocacao_dimanica::aloca_matriz_float(int colunas, int linhas){
+float **Alocacao_dinamica::aloca_matriz_float(int colunas, int linhas){
 	float **matriz;
 	int i;
 	if(colunas<1 || linhas<1){
@@ -70,7 +70,43 @@ float **Alocacao_dimanica::aloca_matriz_float(int colunas, int linhas){
 	}
 	return (matriz);
 }
-float **Alocacao_dimanica::destroi_matriz_float(int colunas, int linhas, float **matriz){
+float **Alocacao_dinamica::destroi_matriz_float(int colunas, int linhas, float **matriz){
+	int  i;
+	if(matriz == NULL){
+		return (NULL);
+	}
+	if(colunas<1 || linhas<1){
+		cout << "** Erro: Parametro invalido **" << endl;
+		return (matriz);
+	}
+	for(i=0;i<colunas;i++){
+		free(matriz[i]);
+	}
+	free(matriz);
+	return (NULL);
+}
+int **Alocacao_dinamica::aloca_matriz_int(int colunas, int linhas){
+	int **matriz;
+	int i;
+	if(colunas<1 || linhas<1){
+		cout << "** Erro: Parametro invalido **" << endl;
+		return NULL;
+	}
+	matriz = (int **) calloc (colunas, sizeof(int *));
+	if(matriz == NULL){
+		cout << "** Erro: Memoria Insuficiente **";
+		return NULL;
+	}
+	for(i=0;i<colunas;i++){
+		matriz[i] = (int*) calloc (linhas, sizeof(int));
+		if(matriz[i] == NULL){
+			cout << "** Erro: Memoria Insuficiente **";
+			return NULL;
+		}
+	}
+	return (matriz);
+}
+int **Alocacao_dinamica::destroi_matriz_int(int colunas, int linhas, int **matriz){
 	int  i;
 	if(matriz == NULL){
 		return (NULL);

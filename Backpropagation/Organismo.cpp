@@ -1,6 +1,7 @@
 #include "Organismo.hpp"
-#include "Alocacao_dimanica.hpp"
+#include "Alocacao_dinamica.hpp"
 #include "Config_Shell.hpp"
+#include "math.h"
 
 Organismo::Organismo(){
 	Config_Shell *tela = new Config_Shell();
@@ -17,11 +18,17 @@ float Organismo::derivada_de_f(float v){
 	return res;
 }
 
-void Organismo::init(int n_caracteristicas, int n_camadas, int *neuronios_por_camadas, float taxa_de_aprendizado){
+float Organismo::sigmoid(float v){
+	float res = 1/1+pow(M_E,-v);
+	return res;
+}
+
+void Organismo::init(int n_caracteristicas,int n_saidas, int n_camadas, int *neuronios_por_camadas, float taxa_de_aprendizado){
 	int i,j,k;
 	Config_Shell *tela = new Config_Shell();
-	Alocacao_dimanica *alocacao = new Alocacao_dimanica();
+	Alocacao_dinamica *alocacao = new Alocacao_dinamica();
 	this->numero_de_caracteristicas_da_amostra_analizada = n_caracteristicas;
+	this->numero_de_saidas_da_amostra_analizada = n_saidas;
 	this->numero_de_camadas = n_camadas;
 	this->taxa_de_aprendizagem = taxa_de_aprendizado;
 	tela->Verde();
@@ -45,3 +52,4 @@ void Organismo::init(int n_caracteristicas, int n_camadas, int *neuronios_por_ca
 	cout << "Ultron está inicializado" << endl;
 	tela->Branco();
 }
+
