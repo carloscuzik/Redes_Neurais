@@ -15,8 +15,8 @@ class Organismo{
 		Organismo();
 		float derivada_de_f(float v);
 		float sigmoid(float v);
-		void init(int n_caracteristicas,int n_saidas, int n_camadas, int *neuronios_por_camadas, float taxa_de_aprendizado, float mudanca_permitida);
-		void aprender();
+		void init(int n_caracteristicas,int n_saidas, int n_camadas, int *neuronios_por_camadas, float taxa_de_aprendizado);
+		void aprender(float mudanca_permitida);
 		float calcula_sigma_camada_de_saida(float valor_calculado, float valor_esperado);
 		void calcula_sigma_camada_oculta(int camada_atual);
 		void corrgir_erro();

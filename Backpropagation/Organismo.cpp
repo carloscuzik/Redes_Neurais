@@ -23,14 +23,13 @@ float Organismo::sigmoid(float v){
 	return res;
 }
 
-void Organismo::init(int n_caracteristicas,int n_saidas, int n_camadas, int *neuronios_por_camadas, float taxa_de_aprendizado, float mudanca_permitida){
+void Organismo::init(int n_caracteristicas,int n_saidas, int n_camadas, int *neuronios_por_camadas, float taxa_de_aprendizado){
 	int i,j,k;
 	Config_Shell *tela = new Config_Shell();
 	this->numero_de_caracteristicas_da_amostra_analizada = n_caracteristicas;
 	this->numero_de_saidas_da_amostra_analizada = n_saidas;
 	this->numero_de_camadas = n_camadas;
 	this->taxa_de_aprendizagem = taxa_de_aprendizado;
-	this->mudanca_permitida = mudanca_permitida;
 	tela->Verde();
 	cout << "Montado." << endl;
 	this->camada = new Camada[this->numero_de_camadas]();
@@ -53,7 +52,8 @@ void Organismo::init(int n_caracteristicas,int n_saidas, int n_camadas, int *neu
 	tela->Branco();
 }
 
-void Organismo::aprender(){
+void Organismo::aprender(float mudanca_permitida){
+	this->mudanca_permitida = mudanca_permitida;
 	int i,j,k;
 	float e;
 	Config_Shell *tela = new Config_Shell();

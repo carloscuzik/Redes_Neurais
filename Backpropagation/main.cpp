@@ -24,8 +24,8 @@ int main(){
 	neuronios_por_camadas[1] = 1;
 	float taxa_de_aprendizado = 0.1;
 	Organismo *ultron = new Organismo();
-	ultron->init(n_caracteristicas,n_saidas,n_camadas,neuronios_por_camadas,taxa_de_aprendizado,0.000);
-	ultron->aprender();
+	ultron->init(n_caracteristicas,n_saidas,n_camadas,neuronios_por_camadas,taxa_de_aprendizado);
+	ultron->aprender(0);
 	ultron->mostra_pesos();
 	return 0;
 }
