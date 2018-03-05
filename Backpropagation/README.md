@@ -1,23 +1,23 @@
-#Back Propragation
+# Back Propragation
 A primeira linha da entrada é dada pelo numero de amostras (n), o numero de caracteristicas das amostras (m), a taxa de aprendisagem (a), a sinapse padrão (b) e cada uma das n linha seguinte são compostas pelas m caracteristicas de cada amostra seguidas do resultado esperado.
-##Classes
+## Classes
 Uma breve descrição das classes usadas nesse programa
-###Config_Shell
+### Config_Shell
 Classe criada para a coniguração de cor e estilo do shell.
 
 Obs: Ela pode ser trocada para ajustar ao windowns se for nescessário.
-###Alocacao_dinamica
+### Alocacao_dinamica
 Classe criada apara fazer as alocações dinamicas necessárias do progama.
-###Amostra
+### Amostra
 Classe que recebera a amostra a ser analizada.
-###Neuronio
+### Neuronio
 Classe responssável por armazenar o neurinio e todas as suas informações.
-###Camada
+### Camada
 Classe que armazenara a camada e os Neuonios que a pertencem. 
-###Organismo
+### Organismo
 Classe principal do sistema que armazenara todas as informações úteis.
 
-##Arquivos
+## Arquivos
 Alguns arquivos especificos do projeto.
-###log.txt
+### log.txt
 Armazena os pesos sinápticos que ja foram aprendidos.
